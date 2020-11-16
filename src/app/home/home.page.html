@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Blank555
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,5 +16,16 @@
   <div id="container">
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button (click)="qr()" expand="block" fill="clear" shape="round">
+      Click me
+    </ion-button>
+    <ion-list>
+      <ion-item *ngFor="let item of [1,2,3,4,65,7,11,2,1,312,4,124,12,4,2]" >
+        <ion-avatar>
+          <img [src]="https://media-cdn.tripadvisor.com/media/photo-s/0f/9f/98/c2/pictrue-postcard-view.jpg" />
+        </ion-avatar>
+        <ion-label>Awesome Label</ion-label>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

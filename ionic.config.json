@@ -1,5 +1,8 @@
 {
   "name": "EnergyShop",
-  "integrations": {},
-  "type": "angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "bb96b50c"
 }
