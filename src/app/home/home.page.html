@@ -1,31 +1,87 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank555
+      Blank555 
     </ion-title>
+    <ion-segment value="pizza" slot="bottom">
+      <ion-segment-button value="pizza">
+        <ion-label>Pizza</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pasta">
+        <ion-label>Pasta</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Blank {{m1}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    <ion-button (click)="qr()" expand="block" fill="clear" shape="round">
-      Click me
-    </ion-button>
-    <ion-list>
-      <ion-item *ngFor="let item of [1,2,3,4,65,7,11,2,1,312,4,124,12,4,2]" >
-        <ion-avatar>
-          <img [src]="https://media-cdn.tripadvisor.com/media/photo-s/0f/9f/98/c2/pictrue-postcard-view.jpg" />
-        </ion-avatar>
-        <ion-label>Awesome Label</ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
+
+  <ion-list>
+    <!-- ท่อย่ยอ -->
+    <ion-item-divider>
+      <ion-label>
+        ท่อย่อย
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>ประเภทท่อย่อย</ion-label>
+      <ion-select [(ngModel)]="main1.m1" placeholder="เลือกประเภทท่อย่อย" (ionChange)="selected_m1($event)">
+        <ion-select-option *ngFor="let item of pipeType" [value]="item">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="main1.m2!=''">
+      <ion-label>ขนาดเทป</ion-label>
+      <ion-select [(ngModel)]="main1.m2" placeholder="เลือกขนาดเทปน้ำหยด" (ionChange)="selected_m2($event)">
+        <ion-select-option *ngFor="let item of main1.m1['list']"  [value]="item">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="main1.m3!=''">
+      <ion-label>อัตราการไหล</ion-label>
+      <ion-select [(ngModel)]="main1.m3" placeholder="เลือกอัตราการไหล (ลิตร/นาที)" (ionChange)="selected_m3($event)">
+        <ion-select-option *ngFor="let item of main1.m2['list']"  [value]="item">{{ item.id }} ลิตร/นาที</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="main1.m3!=''">
+      <ion-label>ค่าการสูยเสียแรงดัน</ion-label>
+      <ion-note color="danger" slot="end">{{ main1.m3['value'] }}</ion-note>
+    </ion-item>
+    <!-- ท่อเมนย่อย -->
+    <ion-item-divider>
+      <ion-label>
+        ท่อเมนย่อย
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>ประเภทท่อเมนย่อย</ion-label>
+      <ion-select [(ngModel)]="main2.m1" placeholder="เลือกประเภทท่อเมนย่อย">
+        <ion-select-option *ngFor="let item of pipeType" [value]="item">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="main2.m1!=''">
+      <ion-label>ขนาดเทป</ion-label>
+      <ion-select [(ngModel)]="main2.m2" placeholder="เลือกขนาดเทปน้ำหยด">
+        <ion-select-option *ngFor="let item of main2.m1['list']"  [value]="item">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="main2.m2!=''">
+      <ion-label>อัตราการไหล</ion-label>
+      <ion-select [(ngModel)]="main2.m3" placeholder="เลือกอัตราการไหล (ลิตร/นาที)">
+        <ion-select-option *ngFor="let item of main2.m2['list']"  [value]="item">{{ item.id }} ลิตร/นาที</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="main2.m3!=''">
+      <ion-label>ค่าการสูยเสียแรงดัน</ion-label>
+      <ion-note color="danger" slot="end">{{ main2.m3['value'] }}</ion-note>
+    </ion-item>
+
+  </ion-list>
+  <ion-button (click)="qr()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
 </ion-content>
