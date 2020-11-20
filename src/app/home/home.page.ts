@@ -1,6 +1,6 @@
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, PickerController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -20,18 +20,9 @@ export class HomePage {
         {
           name: 'ท่อ 16มม. หนา 0.2 มม.',
           list: [
-            {
-              id: 1,
-              value: 0.01
-            },
-            {
-              id: 2,
-              value: 0.04
-            },
-            {
-              id: 3,
-              value: 0.08
-            },
+            { id: 1, value: 0.01 },
+            { id: 2, value: 0.04 },
+            { id: 3, value: 0.08 },
             {
               id: 4,
               value: 0.13
@@ -423,8 +414,10 @@ export class HomePage {
 
   constructor(
     public barcodeScanner: BarcodeScanner,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public picker: PickerController
   ) {
+    
   }
 
   ngOnInit() {

@@ -23,6 +23,10 @@
 
 
   <ion-list>
+    <ion-item button="true">
+      <ion-label>ประเภทท่อย่อย</ion-label>
+      <ion-label>ประเภทท่อย่อย</ion-label>
+    </ion-item>
     <!-- ท่อย่ยอ -->
     <ion-item-divider>
       <ion-label>
@@ -31,19 +35,19 @@
     </ion-item-divider>
     <ion-item>
       <ion-label>ประเภทท่อย่อย</ion-label>
-      <ion-select [(ngModel)]="main1.m1" placeholder="เลือกประเภทท่อย่อย" (ionChange)="selected_m1($event)">
+      <ion-select [(ngModel)]="main1.m1" placeholder="เลือกประเภทท่อย่อย" (ionChange)="selected_m1($event)" interface="action-sheet">
         <ion-select-option *ngFor="let item of pipeType" [value]="item">{{ item.name }}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item *ngIf="main1.m2!=''">
       <ion-label>ขนาดเทป</ion-label>
-      <ion-select [(ngModel)]="main1.m2" placeholder="เลือกขนาดเทปน้ำหยด" (ionChange)="selected_m2($event)">
+      <ion-select [(ngModel)]="main1.m2" placeholder="เลือกขนาดเทปน้ำหยด" (ionChange)="selected_m2($event)" interface="action-sheet">
         <ion-select-option *ngFor="let item of main1.m1['list']"  [value]="item">{{ item.name }}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item *ngIf="main1.m3!=''">
       <ion-label>อัตราการไหล</ion-label>
-      <ion-select [(ngModel)]="main1.m3" placeholder="เลือกอัตราการไหล (ลิตร/นาที)" (ionChange)="selected_m3($event)">
+      <ion-select [(ngModel)]="main1.m3" placeholder="เลือกอัตราการไหล (ลิตร/นาที)" (ionChange)="selected_m3($event)" interface="action-sheet">
         <ion-select-option *ngFor="let item of main1.m2['list']"  [value]="item">{{ item.id }} ลิตร/นาที</ion-select-option>
       </ion-select>
     </ion-item>
